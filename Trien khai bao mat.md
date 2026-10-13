@@ -1,8 +1,8 @@
-# 🛡️ Tổng Kết Hạ Tầng Bảo Mật & Triển Khai HTTPS — Dự Án DriverGuard (P-136)
+## Tóm tắt
 
-> **Tài liệu nội bộ nhóm P-136**: Dùng để toàn bộ thành viên trong nhóm nắm được bức tranh tổng thể về hạ tầng (DevOps & Security), sẵn sàng trả lời phỏng vấn / vấn đáp cùng Mentor và Hội đồng đánh giá.
-
----
+Biên mạng: Đi qua Cloudflare Proxy trên domain c4-app-136.io.vn để ẩn 100% IP thật của máy chủ EC2, tự động cấp chứng chỉ HTTPS/SSL và chống DDoS.
+Máy chủ: Cấu hình Nginx Reverse Proxy nhận kết nối từ Cloudflare, ép header HTTPS, hỗ trợ upload video lớn (100MB) và tối ưu truyền dữ liệu Realtime SSE.
+Tường lửa (AWS Security Group): Đóng toàn bộ các cổng nhạy cảm (8000, 9000, 9001, 18083), không mở cổng Database ra Internet (dùng Supabase Cloud). Chỉ mở đúng 80, 443, 1883 (MQTT xe) và SSH Key 22. Thành viên muốn quản trị nội bộ thì dùng SSH Tunneling an toàn.*"
 
 ## 📌 1. Bức Tranh Tổng Thể (Architecture Flow)
 
