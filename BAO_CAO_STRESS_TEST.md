@@ -13,10 +13,9 @@
 
 ---
 
-## 1. MỤC TIÊU VÀ BỐI CẢNH LẦN CHẠY ĐẦU TIÊN (BASELINE RUN)
+## 1. MỤC TIÊU VÀ BỐI CẢNH 
 
 1. **Khái niệm & Bản chất đợt test này:**
-   - Đây là **lần chạy đầu tiên (Initial Stress Run)** sau khi hoàn tất thiết lập hạ tầng 4 Uvicorn Workers và mở rộng Database Connection Pool lên 50.
    - Mục đích cốt lõi của lần chạy đầu tiên **không phải để hệ thống đạt 100% pass**, mà là phương pháp **"Stress-to-Break" (Ép tải tìm giới hạn sụp đổ)**: chủ động bơm tải dồn dập đến mốc **1,000 Virtual Users (VU)** cùng lúc để xem điểm gãy đầu tiên xuất hiện ở đâu, tầng nào chịu đòn kém nhất (Nginx/Cloudflare, CPU, ASGI worker hay Database).
 2. **Đo lường năng lực tối đa:** Ghi nhận thông lượng thực tế (Throughput RPS) và mức độ tiêu thụ CPU khi cả 4 workers hoạt động hết công suất.
 3. **Phát hiện lỗ hổng kịch bản và kiến trúc:** Nhận diện hiệu ứng dây chuyền (Cascading Failure) để làm căn cứ cải tiến kiến trúc backend và chuẩn hóa kịch bản test cho các lần chạy tiếp theo.
@@ -135,7 +134,7 @@ pie title Cơ cấu 80,471 lỗi trong lần chạy đầu tiên
 
 ---
 
-## 5. ĐÁNH GIÁ Ý NGHĨA KỸ THUẬT CỦA LẦN CHẠY ĐẦU TIÊN (FIRST RUN INSIGHTS)
+## 5. ĐÁNH GIÁ Ý NGHĨA KỸ THUẬT 
 
 1. **Khẳng định năng lực xử lý nền tảng:**
    - Hệ thống đạt mức thông lượng trung bình **235.22 req/s** và đỉnh tức thời **1,176.8 req/s**. Đây là con số ấn tượng cho một kiến trúc 4 workers trên hạ tầng Cloud Staging.
